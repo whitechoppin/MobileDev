@@ -12,7 +12,7 @@
     <DownloadNuGetExe>true</DownloadNuGetExe>
     <NugetExe>$(MSBuildProjectDirectory)\.nuget\NuGet.exe</NugetExe>
     <DefaultNugetPackageSource>https://www.nuget.org/api/v2/</DefaultNugetPackageSource>
-    <NugetPackageSource Condition=" '$(NugetPackageSource)' == '' ">"$(MSBuildProjectDirectory)\NewNugets"</NugetPackageSource>
+    <NugetPackageSource Condition=" '$(NugetPackageSource)' == '' ">$(DefaultNugetPackageSource)</NugetPackageSource>
 
     <!-- Define default configuration (so building from command line is consistent) -->
     <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
@@ -133,13 +133,12 @@
 
     <!--Restore required nuget packages-->
     <Exec Command='"$(NugetExe)" install 7-Zip.CommandLine -source $(DefaultNugetPackageSource) -o "$(MSBuildProjectDirectory)\packages" -Version 9.20.0' LogStandardErrorAsError="true" />
-    <Exec Command='"$(NugetExe)" sources update -name "Newly Built .NET NuGets" -source $(NugetPackageSource)' LogStandardErrorAsError="true" />
 
-    <Exec Command='"$(NugetExe)" install Microsoft.Azure.Mobile.Server.Quickstart -o "$(MSBuildProjectDirectory)\backend\dotnet\packages"' LogStandardErrorAsError="true" />
-    <Exec Command='"$(NugetExe)" install Microsoft.Azure.Mobile.Client -Prerelease -o "$(MSBuildProjectDirectory)\packages\sdk"' LogStandardErrorAsError="true" />
-    <Exec Command='"$(NugetExe)" install Microsoft.Azure.Mobile.Client.SQLiteStore -Prerelease -o "$(MSBuildProjectDirectory)\packages\sqllitestore"' LogStandardErrorAsError="true" />
-    <Exec Command='"$(NugetExe)" install WindowsAzure.MobileServices.WinJS -o "$(MSBuildProjectDirectory)\packages"' LogStandardErrorAsError="true" />
-    <Exec Command='"$(NugetExe)" install "$(MSBuildProjectDirectory)\backend\try-mobile-apps\packages.config" -o "$(MSBuildProjectDirectory)\backend\try-mobile-apps\packages"' LogStandardErrorAsError="true" />
+    <Exec Command='"$(NugetExe)" install Microsoft.Azure.Mobile.Server.Quickstart -source $(NugetPackageSource) -o "$(MSBuildProjectDirectory)\backend\dotnet\packages"' LogStandardErrorAsError="true" />
+    <Exec Command='"$(NugetExe)" install Microsoft.Azure.Mobile.Client -Prerelease -source $(NugetPackageSource) -o "$(MSBuildProjectDirectory)\packages\sdk"' LogStandardErrorAsError="true" />
+    <Exec Command='"$(NugetExe)" install Microsoft.Azure.Mobile.Client.SQLiteStore -Prerelease -source $(NugetPackageSource) -o "$(MSBuildProjectDirectory)\packages\sqllitestore"' LogStandardErrorAsError="true" />
+    <Exec Command='"$(NugetExe)" install WindowsAzure.MobileServices.WinJS -source $(NugetPackageSource) -o "$(MSBuildProjectDirectory)\packages"' LogStandardErrorAsError="true" />
+    <Exec Command='"$(NugetExe)" install "$(MSBuildProjectDirectory)\backend\try-mobile-apps\packages.config" -source $(NugetPackageSource) -o "$(MSBuildProjectDirectory)\backend\try-mobile-apps\packages"' LogStandardErrorAsError="true" />
 
     <!--Download iOS SDK-->
     <HttpDownload DownloadUrl="https://go.microsoft.com/fwLink/?LinkID=529823" PackageDirectory="$(SDKRootPath)\packages" SDKPackage="iOS" Condition=" '$(iOSSDK)' == ''" />
