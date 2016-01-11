@@ -20,7 +20,7 @@ To get the source code of our SDKs and samples via **git** just type:
     git clone https://github.com/Azure/azure-mobile-apps-quickstarts.git
     cd ./azure-mobile-apps-quickstarts/
  
-## Building Quickstarts
+## Building Quickstarts For Uploading To Azure Portal
 
 From the command line, run 
 
@@ -31,3 +31,25 @@ The build script downloads latest official nuget packages, updates quickstarts w
 ### Prerequisites
 
 .Net Framework 4.0.
+
+## Quickstarts Usage Instructions
+
+### Cordova Client
+
+To use the Azure Mobile Apps Cordova client quickstart:
+
+  1. Edit ./client/cordova/ZUMOAPPNAME/www/js/index.js and replace the *ZUMOAPPURL* placeholder with your Mobile App URL.
+  2. Change to the Cordova quickstart directory:
+
+        cd ./client/cordova/ZUMOAPPNAME
+  3. Add the platform you want to build the quickstart for:
+
+        cordova platform add [android | ios | windows | wp8]
+  4. Run the quickstart:
+
+        cordova run [android | ios | windows | wp8]
+
+### Prerequisites
+
+* [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/index.html)
+* Target platform SDK.
