@@ -1,2 +1,4 @@
-platforms/
-plugins/
+﻿[Pp]lugins/
+[Pp]latforms/
+bld/
+.vs/
