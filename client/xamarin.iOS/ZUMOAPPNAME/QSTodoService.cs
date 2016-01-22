@@ -40,7 +40,7 @@ namespace ZUMOAPPNAME
 
         public async Task InitializeStoreAsync()
         {
-			var store = new MobileServiceSQLiteStore(localDbPath);
+            var store = new MobileServiceSQLiteStore(localDbPath);
             store.DefineTable<ToDoItem>();
 
             // Uses the default conflict handler, which fails on conflict
@@ -48,12 +48,15 @@ namespace ZUMOAPPNAME
             await client.SyncContext.InitializeAsync(store);
         }
 
-        public async Task SyncAsync()
+        public async Task SyncAsync(bool pullData = false)
         {
             try
             {
                 await client.SyncContext.PushAsync();
-                await todoTable.PullAsync("allTodoItems", todoTable.CreateQuery()); // query ID is used for incremental sync
+
+                if (pullData) {
+                    await todoTable.PullAsync("allTodoItems", todoTable.CreateQuery()); // query ID is used for incremental sync
+                }
             }
 
             catch (MobileServiceInvalidOperationException e)
@@ -65,14 +68,14 @@ namespace ZUMOAPPNAME
         public async Task<List<ToDoItem>> RefreshDataAsync ()
         {
             try {
-				// update the local store
-				// all operations on todoTable use the local database, call SyncAsync to send changes
-                await SyncAsync(); 							
+                // update the local store
+                // all operations on todoTable use the local database, call SyncAsync to send changes
+                await SyncAsync(pullData: true); 							
 
                 // This code refreshes the entries in the list view by querying the local TodoItems table.
                 // The query excludes completed TodoItems
                 Items = await todoTable
-                    	.Where (todoItem => todoItem.Complete == false).ToListAsync ();
+                        .Where (todoItem => todoItem.Complete == false).ToListAsync ();
 
             } catch (MobileServiceInvalidOperationException e) {
                 Console.Error.WriteLine (@"ERROR {0}", e.Message);
@@ -85,8 +88,8 @@ namespace ZUMOAPPNAME
         public async Task InsertTodoItemAsync (ToDoItem todoItem)
         {
             try {                
-				await todoTable.InsertAsync (todoItem); // Insert a new TodoItem into the local database. 
-				await SyncAsync(); // send changes to the mobile service
+                await todoTable.InsertAsync (todoItem); // Insert a new TodoItem into the local database. 
+                await SyncAsync(); // send changes to the mobile service
 
                 Items.Add (todoItem); 
 
@@ -98,9 +101,9 @@ namespace ZUMOAPPNAME
         public async Task CompleteItemAsync (ToDoItem item)
         {
             try {
-				item.Complete = true; 
+                item.Complete = true; 
                 await todoTable.UpdateAsync (item); // update todo item in the local database
-				await SyncAsync(); // send changes to the mobile service
+                await SyncAsync(); // send changes to the mobile service
 
                 Items.Remove (item);
 
