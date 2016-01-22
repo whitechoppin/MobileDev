@@ -100,7 +100,7 @@ namespace ZUMOAPPNAME
 
         public async Task SaveTaskAsync(TodoItem item)
         {
-            if (item.ID == null)
+            if (item.Id == null)
             {
                 await todoTable.InsertAsync(item);
             }
