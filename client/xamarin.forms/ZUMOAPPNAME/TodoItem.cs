@@ -11,7 +11,7 @@ namespace ZUMOAPPNAME
 		bool done;
 
 		[JsonProperty(PropertyName = "id")]
-		public string ID
+		public string Id
 		{
 			get { return id; }
 			set { id = value;}

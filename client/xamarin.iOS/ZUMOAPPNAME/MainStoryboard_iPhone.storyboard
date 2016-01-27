@@ -17,7 +17,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Azure Mobile Services" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kaZ-ps-3HH" fixedFrame="YES">
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Azure App Service" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kaZ-ps-3HH" fixedFrame="YES">
                                     <rect key="frame" x="20" y="29" width="245" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <inset key="insetFor6xAndEarlier" minX="0.0" minY="18" maxX="0.0" maxY="-18"/>
