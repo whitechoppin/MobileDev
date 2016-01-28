@@ -14,13 +14,13 @@ var app = express();
 
 // Configuration of the Azure Mobile Apps can be done via an object, the
 // environment or an auxiliary file.  You can check out the default object
-// within node_modules/azure-mobile-apps/index.js (look for defaults).  
+// within node_modules/azure-mobile-apps/index.js (look for defaults).
 var mobile = azureMobileApps({
     // Explicitly enable the Azure Mobile Apps home page
     homePage: true
 });
 
-// Import the files from the tables directory to configure the /tables API
+// Import the files from the tables directory to configure the /tables endpoint
 mobile.tables.import('./tables');
 
 // Import the files from the api directory to configure the /api endpoint
@@ -30,7 +30,7 @@ mobile.api.import('./api');
 // The tables.initialize() method does the initialization asynchronously
 // and returns a Promise.
 mobile.tables.initialize()
-  .then(function () {
-    app.use(mobile);    // Register the Azure Mobile Apps middleware
-    app.listen(process.env.PORT || 3000);   // Listen for requests
-  });
+    .then(function () {
+        app.use(mobile);    // Register the Azure Mobile Apps middleware
+        app.listen(process.env.PORT || 3000);   // Listen for requests
+    });
