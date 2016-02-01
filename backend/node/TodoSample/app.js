@@ -13,8 +13,8 @@ var app = express();
 // anything like logging, registering middleware, etc. here
 
 // Configuration of the Azure Mobile Apps can be done via an object, the
-// environment or an auxiliary file.  You can check out the default object
-// within node_modules/azure-mobile-apps/index.js (look for defaults).
+// environment or an auxiliary file.  For more information, see
+// http://azure.github.io/azure-mobile-apps-node/global.html#configuration
 var mobileApp = azureMobileApps({
     // Explicitly enable the Azure Mobile Apps home page
     homePage: true,
