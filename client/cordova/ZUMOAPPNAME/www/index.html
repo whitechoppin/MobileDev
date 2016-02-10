@@ -20,6 +20,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: ZUMOAPPURL; style-src 'self'; media-src *">
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
@@ -40,7 +41,7 @@
                 </header>
 
                 <ul id='todo-items'></ul>
-                <p id='summary'>Loading...</p>
+                <p id='summary'>Initializing...</p>
             </article>
 
             <footer>
@@ -50,8 +51,5 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
     </body>
 </html>
