@@ -31,14 +31,6 @@
      * @event
      */
     function onDeviceReady() {
-        // Device Management - hook up the Pause and Resume events
-        document.addEventListener('pause', function () {
-            console.log('Pausing application');
-        });
-        document.addEventListener('resume', function () {
-            console.log('Resuming application');
-        });
-
         // Create a connection reference to our Azure Mobile Apps backend
         client = new WindowsAzure.MobileServiceClient('ZUMOAPPURL');
 
@@ -50,6 +42,7 @@
 
         // Wire up the UI Event Handler for the Add Item
         $('#add-item').submit(addItemHandler);
+        $('#refresh').on('click', refreshDisplay);
     }
 
     /**
