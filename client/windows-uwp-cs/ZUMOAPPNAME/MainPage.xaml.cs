@@ -17,7 +17,7 @@ namespace ZUMOAPPNAME
     public sealed partial class MainPage : Page
     {
         private MobileServiceCollection<TodoItem, TodoItem> items;
-        private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>(); 
+        private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
         //private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>(); // offline sync
 
         public MainPage()
@@ -34,7 +34,7 @@ namespace ZUMOAPPNAME
         private async Task InsertTodoItem(TodoItem todoItem)
         {
             // This code inserts a new TodoItem into the database. When the operation completes
-            // and Mobile Services has assigned an Id, the item is added to the CollectionView
+            // and Mobile Apps has assigned an Id, the item is added to the CollectionView
             await todoTable.InsertAsync(todoItem);
             items.Add(todoItem);
 
@@ -70,8 +70,8 @@ namespace ZUMOAPPNAME
 
         private async Task UpdateCheckedTodoItem(TodoItem item)
         {
-            // This code takes a freshly completed TodoItem and updates the database. When the MobileService 
-            // responds, the item is removed from the list 
+            // This code takes a freshly completed TodoItem and updates the database. When the MobileService
+            // responds, the item is removed from the list
             await todoTable.UpdateAsync(item);
             items.Remove(item);
             ListItems.Focus(Windows.UI.Xaml.FocusState.Unfocused);
@@ -130,6 +130,6 @@ namespace ZUMOAPPNAME
         //    await todoTable.PullAsync("todoItems", todoTable.CreateQuery());
         //}
 
-        #endregion 
+        #endregion
     }
 }

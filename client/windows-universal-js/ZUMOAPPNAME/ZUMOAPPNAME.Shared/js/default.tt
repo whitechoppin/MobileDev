@@ -20,8 +20,8 @@
             }
             args.setPromise(WinJS.UI.processAll());
 
-            // This MobileServiceClient has been configured to communicate with your Mobile Service's url
-            // and application key. You're all set to start working with your Mobile Service!
+            // This MobileServiceClient has been configured to communicate with your Mobile Apps's url
+            // and application key. You're all set to start working with your Mobile App!
             var client = new WindowsAzure.MobileServiceClient(
                 "ZUMOAPPURL",
                 "ZUMOGATEWAYURL",
@@ -43,7 +43,7 @@
 
             var insertTodoItem = function (todoItem) {
                 // This code inserts a new TodoItem into the database. When the operation completes
-                // and Mobile Services has assigned an id, the item is added to the Binding List
+                // and Mobile Apps has assigned an id, the item is added to the Binding List
                 todoTable.insert(todoItem).done(function (item) {
                     todoItems.push(item);
                 });
