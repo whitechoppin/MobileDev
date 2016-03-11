@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Azure Mobile Services-->
+        <!--Azure Mobile Apps-->
         <scene sceneID="v2j-ei-0Wt">
             <objects>
                 <tableViewController id="V6T-ri-3qt" customClass="ToDoTableViewController" customModule="ZUMOAPPNAME" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,7 +41,7 @@
                             <outlet property="delegate" destination="V6T-ri-3qt" id="JPV-12-XTr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Azure Mobile Services" id="Hul-ZG-Q2n">
+                    <navigationItem key="navigationItem" title="Azure Mobile Apps" id="Hul-ZG-Q2n">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8eL-ww-Tlx">
                             <connections>
                                 <action selector="addItem:" destination="V6T-ri-3qt" id="Qf4-1u-FEE"/>
@@ -107,10 +107,10 @@
             </objects>
             <point key="canvasLocation" x="2886" y="168"/>
         </scene>
-        <!--Azure Mobile Services-->
+        <!--Azure Mobile Apps-->
         <scene sceneID="yNt-7v-plj">
             <objects>
-                <navigationController title="Azure Mobile Services" automaticallyAdjustsScrollViewInsets="NO" id="8st-Q2-1ux" sceneMemberID="viewController">
+                <navigationController title="Azure Mobile Apps" automaticallyAdjustsScrollViewInsets="NO" id="8st-Q2-1ux" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Cf-GE-u1S">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

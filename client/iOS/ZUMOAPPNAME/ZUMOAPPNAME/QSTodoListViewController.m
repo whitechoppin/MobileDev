@@ -44,10 +44,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     // Create the todoService - this creates the Mobile Service client inside the wrapped service
     self.todoService = [QSTodoService defaultService];
-    
+
     // have refresh control reload all data from server
     [self.refreshControl addTarget:self
                             action:@selector(onRefresh:)
@@ -58,26 +58,26 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         exit(-1);  // Fail
     }
-    
+
     // load the data
     [self refresh];
 }
 
 - (NSFetchedResultsController *)fetchedResultsController {
-    
+
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
     }
-    
+
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     QSAppDelegate *delegate = (QSAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = delegate.managedObjectContext;
 
     fetchRequest.entity = [NSEntityDescription entityForName:@"TodoItem" inManagedObjectContext:context];
-    
+
     // show only non-completed items
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-    
+
     // sort by item text
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:YES]];
 
@@ -88,17 +88,17 @@
                                             managedObjectContext:context sectionNameKeyPath:nil
                                                        cacheName:nil];
     self.fetchedResultsController = theFetchedResultsController;
-    
+
     _fetchedResultsController.delegate = self;
-    
+
     return _fetchedResultsController;
-    
+
 }
 
 - (void) refresh
 {
     [self.refreshControl beginRefreshing];
-    
+
     [self.todoService syncData:^
     {
          [self.refreshControl endRefreshing];
@@ -113,14 +113,14 @@
 {
     // Find item that was commited for editing (completed)
     NSManagedObject *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    // map to a dictionary to pass to Mobile Services SDK
+
+    // map to a dictionary to pass to Mobile Apps SDK
     NSDictionary *dict = [self.todoService.store tableItemFromManagedObject:item];
-    
+
     // Change the appearance to look greyed out until we remove the item
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.textLabel.textColor = [UIColor grayColor];
-    
+
     // Ask the todoService to set the item's complete value to YES
     [self.todoService completeItem:dict completion:nil];
 }
@@ -129,13 +129,13 @@
 {
     // Find the item that is about to be edited
     NSManagedObject *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
- 
+
     // If the item is complete, then this is just pending upload. Editing is not allowed
     if ([[item valueForKey:@"complete"] boolValue])
     {
         return UITableViewCellEditingStyleNone;
     }
-    
+
     // Otherwise, allow the delete button to appear
     return UITableViewCellEditingStyleDelete;
 }
@@ -160,9 +160,9 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+
     [self configureCell:cell atIndexPath:indexPath];
-    
+
     return cell;
 }
 
@@ -196,7 +196,7 @@
     {
         return;
     }
-    
+
     NSDictionary *item = @{ @"text" : self.itemText.text, @"complete" : @NO };
     [self.todoService addItem:item completion:nil];
     self.itemText.text = @"";
@@ -223,26 +223,26 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         UITableView *tableView = self.tableView;
-        
+
         switch(type) {
-                
+
             case NSFetchedResultsChangeInsert:
                 [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
                 break;
-                
+
             case NSFetchedResultsChangeDelete:
                 [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
                 break;
-                
+
             case NSFetchedResultsChangeUpdate:
                 [tableView reloadRowsAtIndexPaths:@[indexPath]
                                  withRowAnimation:UITableViewRowAnimationAutomatic];
-                
+
                 // note: Apple samples show a call to configureCell here; this is incorrect--it can result in retrieving the
                 // wrong index when rows are reordered. For more information, see http://go.microsoft.com/fwlink/?LinkID=524590&clcid=0x409
                 // [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath]; // wrong! call reloadRows instead
                 break;
-                
+
             case NSFetchedResultsChangeMove:
                 [tableView deleteRowsAtIndexPaths:[NSArray
                                                    arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -260,19 +260,19 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         switch(type) {
-                
+
             case NSFetchedResultsChangeInsert:
                 [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
                 break;
-                
+
             case NSFetchedResultsChangeDelete:
                 [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
                 break;
-                
+
             case NSFetchedResultsChangeUpdate:
                 [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
                 break;
-                
+
             default:
                 break;
         }

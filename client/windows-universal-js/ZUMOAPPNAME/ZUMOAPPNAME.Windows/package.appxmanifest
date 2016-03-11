@@ -8,7 +8,7 @@
 
   <Properties>
     <DisplayName>ZUMOAPPNAME</DisplayName>
-    <PublisherDisplayName>Mobile Services</PublisherDisplayName>
+    <PublisherDisplayName>Mobile Apps</PublisherDisplayName>
     <Logo>images\storelogo.png</Logo>
   </Properties>
 
@@ -22,7 +22,7 @@
   </Resources>
 
   <Applications>
-    <Application 
+    <Application
       Id="App"
       StartPage="default.html">
 
