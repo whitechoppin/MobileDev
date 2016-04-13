@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <!--
   This targets file allows you to regenerate T4-generated files using MsBuild.
@@ -154,8 +154,8 @@
   <PropertyGroup Condition=" $(IncludeDslT4Settings)=='true' ">
     <!-- Path to VS\Common7\IDE -->
     <!-- Check the 32bit location first ; if that is empty, use the 64bit location. -->
-    <VsIdePath>$(Registry:HKEY_LOCAL_MACHINE\Software\Microsoft\VisualStudio\12.0@InstallDir)</VsIdePath>
-    <VsIdePath Condition=" $(VsIdePath) == ''" >$(Registry:HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\VisualStudio\12.0@InstallDir)</VsIdePath>
+    <VsIdePath>$(Registry:HKEY_LOCAL_MACHINE\Software\Microsoft\VisualStudio\14.0@InstallDir)</VsIdePath>
+    <VsIdePath Condition=" $(VsIdePath) == ''" >$(Registry:HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\VisualStudio\14.0@InstallDir)</VsIdePath>
 
     <!-- Set the default location for the Dsl Designer install. -->
     <DslDesignerInstallPath Condition=" $(DslDesignerInstallPath)=='' ">$(VsIdePath)Extensions\Microsoft\DSL SDK\Dsl Designer\$(VisualStudioVersion)\</DslDesignerInstallPath>
@@ -169,7 +169,7 @@
     <DirectiveProcessor Include="DslDirectiveProcessor" >
       <Class>Microsoft.VisualStudio.Modeling.DslDefinition.DslDirectiveProcessor</Class>
       <!-- Specify the default install location of the DslDesigner assembly -->
-      <CodeBase>$(Registry:HKEY_LOCAL_MACHINE\Software\Microsoft\VisualStudio\12.0@InstallDir)Extensions\Microsoft\DSL SDK\DSL Designer\$(VisualStudioVersion)\Microsoft.VisualStudio.Modeling.Sdk.DslDefinition.$(VisualStudioVersion).dll</CodeBase>
+      <CodeBase>$(Registry:HKEY_LOCAL_MACHINE\Software\Microsoft\VisualStudio\14.0@InstallDir)Extensions\Microsoft\DSL SDK\DSL Designer\$(VisualStudioVersion)\Microsoft.VisualStudio.Modeling.Sdk.DslDefinition.$(VisualStudioVersion).dll</CodeBase>
     </DirectiveProcessor>
     <!-- Add VS\...\PublicAssemblies to the list of places to look for assemblies used by templates. -->
     <T4ReferencePath Include="$(VsIdePath)PublicAssemblies\" />
@@ -464,7 +464,7 @@
    Returns the items from the CandidateItemList for which there is
    an item with the same itemspec in the ItemSpecList.
   -->
-  <UsingTask TaskName="FilterCandidatesBasedOnItemSpec" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v12.0.dll" >
+  <UsingTask TaskName="FilterCandidatesBasedOnItemSpec" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll" >
     <ParameterGroup>
       <CandidateItemList ParameterType="Microsoft.Build.Framework.ITaskItem[]" Required="true" />
       <ItemSpecList ParameterType="Microsoft.Build.Framework.ITaskItem[]" Required="true" />
