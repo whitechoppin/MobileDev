@@ -41,7 +41,13 @@
       <SourcePath>windows-universal-cs</SourcePath>
       <ZipFileName>Windows_Universal_CS.zip</ZipFileName>
     </QuickStart>
-
+    
+    <QuickStart Include="$(MSBuildProjectFile)">
+      <Runtime>Node</Runtime>
+      <SourcePath>windows-uwp-cs</SourcePath>
+      <ZipFileName>Windows_UWP_CS.zip</ZipFileName>
+    </QuickStart>
+      
     <QuickStart Include="Windows_Universal_JS">
       <Runtime>Node</Runtime>
       <SourcePath>windows-universal-js</SourcePath>
