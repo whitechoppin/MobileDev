@@ -1,6 +1,9 @@
-﻿{
+﻿<#@template language="c#" hostspecific="true"#>
+<#@output extension=".json"#>
+<#@parameter type="System.String" name="ManagedSDKVersion"#>
+{
   "dependencies": {
-    "Microsoft.Azure.Mobile.Client": "2.0.0",
+    "Microsoft.Azure.Mobile.Client": "<#= ManagedSDKVersion #>,
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0"
   },
   "frameworks": {
