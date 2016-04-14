@@ -169,6 +169,27 @@
       <DependentUpon>ZUMOAPPNAME.WinPhone81.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\windows-uwp-cs\ZUMOAPPNAME\project.json">
+      <Link>windows-uwp-cs\ZUMOAPPNAME\project.json</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>project.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\windows-uwp-cs\ZUMOAPPNAME\ZUMOAPPNAME.csproj">
+      <Link>windows-uwp-cs\ZUMOAPPNAME\ZUMOAPPNAME.csproj</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZUMOAPPNAME.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\windows-uwp-cs\ZUMOAPPNAME.sln">
+      <Link>windows-uwp-cs\ZUMOAPPNAME.sln</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZUMOAPPNAME.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Readme.txt" />
     <Content Include="TextTemplating\Microsoft.TextTemplating.Build.Tasks.dll" />
     <Content Include="TextTemplating\Microsoft.VisualStudio.TextTemplating.Sdk.Host.14.0.dll" />
@@ -408,6 +429,21 @@
       <Link>xamarin.forms\WinPhone81\packages.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>packages.config</LastGenOutput>
+    </None>
+    <None Include="..\windows-uwp-cs\ZUMOAPPNAME\project.tt">
+      <Link>windows-uwp-cs\ZUMOAPPNAME\project.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>project.json</LastGenOutput>
+    </None>
+    <None Include="..\windows-uwp-cs\ZUMOAPPNAME\ZUMOAPPNAME.tt">
+      <Link>windows-uwp-cs\ZUMOAPPNAME\ZUMOAPPNAME.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ZUMOAPPNAME.csproj</LastGenOutput>
+    </None>
+    <None Include="..\windows-uwp-cs\ZUMOAPPNAME.tt">
+      <Link>windows-uwp-cs\ZUMOAPPNAME.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ZUMOAPPNAME.sln</LastGenOutput>
     </None>
     <None Include="TextTemplating\Microsoft.TextTemplating.targets" />
   </ItemGroup>
