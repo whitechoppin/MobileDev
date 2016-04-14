@@ -59,20 +59,20 @@
       <DependentUpon>build.tt</DependentUpon>
     </Content>
     <Content Include="..\windows-universal-cs\ZUMOAPPNAME\ZUMOAPPNAME.Windows\ZUMOAPPNAME.Windows.csproj">
-      <Link>windows-univeresal-cs\ZUMOAPPNAME.Windows\ZUMOAPPNAME.Windows.csproj</Link>
+      <Link>windows-universal-cs\ZUMOAPPNAME.Windows\ZUMOAPPNAME.Windows.csproj</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ZUMOAPPNAME.Windows.tt</DependentUpon>
     </Content>
     <Content Include="..\windows-universal-cs\ZUMOAPPNAME\ZUMOAPPNAME.Shared\App.xaml.cs">
-      <Link>windows-univeresal-cs\ZUMOAPPNAME.Shared\App.xaml.cs</Link>
+      <Link>windows-universal-cs\ZUMOAPPNAME.Shared\App.xaml.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>App.xaml.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\windows-universal-cs\ZUMOAPPNAME\ZUMOAPPNAME.WindowsPhone\ZUMOAPPNAME.WindowsPhone.csproj">
-      <Link>windows-univeresal-cs\ZUMOAPPNAME.WindowsPhone\ZUMOAPPNAME.WindowsPhone.csproj</Link>
+      <Link>windows-universal-cs\ZUMOAPPNAME.WindowsPhone\ZUMOAPPNAME.WindowsPhone.csproj</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ZUMOAPPNAME.WindowsPhone.tt</DependentUpon>
@@ -86,7 +86,7 @@
     </Content>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="..\windows-universal-cs\ZUMOAPPNAME.sln">
-      <Link>windows-univeresal-cs\ZUMOAPPNAME.sln</Link>
+      <Link>windows-universal-cs\ZUMOAPPNAME.sln</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ZUMOAPPNAME.tt</DependentUpon>
@@ -114,56 +114,56 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\xamarin.iOS\ZUMOAPPNAME.sln">
-      <Link>xanarin.iOS\ZUMOAPPNAME.sln</Link>
+      <Link>xamarin.iOS\ZUMOAPPNAME.sln</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ZUMOAPPNAME.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\xamarin.iOS\ZUMOAPPNAME\ZUMOAPPNAME.csproj">
-      <Link>xanarin.iOS\ZUMOAPPNAME\ZUMOAPPNAME.csproj</Link>
+      <Link>xamarin.iOS\ZUMOAPPNAME\ZUMOAPPNAME.csproj</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ZUMOAPPNAME.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\xamarin.forms\ZUMOAPPNAME.sln">
-      <Link>xanarin.forms\ZUMOAPPNAME.sln</Link>
+      <Link>xamarin.forms\ZUMOAPPNAME.sln</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ZUMOAPPNAME.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>    
     <Content Include="..\xamarin.forms\ZUMOAPPNAME\ZUMOAPPNAME.csproj">
-      <Link>xanarin.forms\ZUMOAPPNAME\ZUMOAPPNAME.csproj</Link>
+      <Link>xamarin.forms\ZUMOAPPNAME\ZUMOAPPNAME.csproj</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ZUMOAPPNAME.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\xamarin.forms\Droid\ZUMOAPPNAME\ZUMOAPPNAME.Droid.csproj">
-      <Link>xanarin.forms\ZUMOAPPNAME\Droid\ZUMOAPPNAME.Droid.csproj</Link>
+      <Link>xamarin.forms\ZUMOAPPNAME\Droid\ZUMOAPPNAME.Droid.csproj</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ZUMOAPPNAME.Droid.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\xamarin.forms\iOS\ZUMOAPPNAME\ZUMOAPPNAME.iOS.csproj">
-      <Link>xanarin.forms\ZUMOAPPNAME\iOS\ZUMOAPPNAME.iOS.csproj</Link>
+      <Link>xamarin.forms\ZUMOAPPNAME\iOS\ZUMOAPPNAME.iOS.csproj</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ZUMOAPPNAME.iOS.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\xamarin.forms\WinApp\ZUMOAPPNAME\ZUMOAPPNAME.WinApp.csproj">
-      <Link>xanarin.forms\ZUMOAPPNAME\WinApp\ZUMOAPPNAME.WinApp.csproj</Link>
+      <Link>xamarin.forms\ZUMOAPPNAME\WinApp\ZUMOAPPNAME.WinApp.csproj</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ZUMOAPPNAME.WinApp.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\xamarin.forms\WinPhone81\ZUMOAPPNAME\ZUMOAPPNAME.WinPhone81.csproj">
-      <Link>xanarin.forms\ZUMOAPPNAME\WinPhone81\ZUMOAPPNAME.WinPhone81.csproj</Link>
+      <Link>xamarin.forms\ZUMOAPPNAME\WinPhone81\ZUMOAPPNAME.WinPhone81.csproj</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ZUMOAPPNAME.WinPhone81.tt</DependentUpon>
@@ -211,17 +211,17 @@
       <LastGenOutput>build.gradle</LastGenOutput>
     </None>
     <None Include="..\windows-universal-cs\ZUMOAPPNAME.tt">
-      <Link>windows-univeresal-cs\ZUMOAPPNAME.tt</Link>
+      <Link>windows-universal-cs\ZUMOAPPNAME.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ZUMOAPPNAME.sln</LastGenOutput>
     </None>
     <None Include="..\windows-universal-cs\ZUMOAPPNAME\ZUMOAPPNAME.Shared\App.xaml.tt">
-      <Link>windows-univeresal-cs\ZUMOAPPNAME.Shared\App.xaml.tt</Link>
+      <Link>windows-universal-cs\ZUMOAPPNAME.Shared\App.xaml.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>App.xaml.cs</LastGenOutput>
     </None>
     <None Include="..\windows-universal-cs\ZUMOAPPNAME\ZUMOAPPNAME.WindowsPhone\packages.config">
-      <Link>windows-univeresal-cs\ZUMOAPPNAME.WindowsPhone\packages.config</Link>
+      <Link>windows-universal-cs\ZUMOAPPNAME.WindowsPhone\packages.config</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>packages.tt</DependentUpon>
@@ -229,29 +229,29 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="..\windows-universal-cs\ZUMOAPPNAME\ZUMOAPPNAME.WindowsPhone\packages.tt">
-      <Link>windows-univeresal-cs\ZUMOAPPNAME.WindowsPhone\packages.tt</Link>
+      <Link>windows-universal-cs\ZUMOAPPNAME.WindowsPhone\packages.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>packages.config</LastGenOutput>
     </None>
     <None Include="..\windows-universal-cs\ZUMOAPPNAME\ZUMOAPPNAME.WindowsPhone\ZUMOAPPNAME.WindowsPhone.tt">
-      <Link>windows-univeresal-cs\ZUMOAPPNAME.WindowsPhone\ZUMOAPPNAME.WindowsPhone.tt</Link>
+      <Link>windows-universal-cs\ZUMOAPPNAME.WindowsPhone\ZUMOAPPNAME.WindowsPhone.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ZUMOAPPNAME.WindowsPhone.csproj</LastGenOutput>
     </None>
     <None Include="..\windows-universal-cs\ZUMOAPPNAME\ZUMOAPPNAME.Windows\packages.config">
-      <Link>windows-univeresal-cs\ZUMOAPPNAME.Windows\packages.config</Link>
+      <Link>windows-universal-cs\ZUMOAPPNAME.Windows\packages.config</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>packages.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\windows-universal-cs\ZUMOAPPNAME\ZUMOAPPNAME.Windows\packages.tt">
-      <Link>windows-univeresal-cs\ZUMOAPPNAME.Windows\packages.tt</Link>
+      <Link>windows-universal-cs\ZUMOAPPNAME.Windows\packages.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>packages.config</LastGenOutput>
     </None>
     <None Include="..\windows-universal-cs\ZUMOAPPNAME\ZUMOAPPNAME.Windows\ZUMOAPPNAME.Windows.tt">
-      <Link>windows-univeresal-cs\ZUMOAPPNAME.Windows\ZUMOAPPNAME.Windows.tt</Link>
+      <Link>windows-universal-cs\ZUMOAPPNAME.Windows\ZUMOAPPNAME.Windows.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ZUMOAPPNAME.Windows.csproj</LastGenOutput>
     </None>
