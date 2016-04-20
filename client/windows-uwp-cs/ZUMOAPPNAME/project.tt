@@ -3,7 +3,7 @@
 <#@parameter type="System.String" name="ManagedSDKVersion"#>
 {
   "dependencies": {
-    "Microsoft.Azure.Mobile.Client": "<#= ManagedSDKVersion #>,
+    "Microsoft.Azure.Mobile.Client": "<#= ManagedSDKVersion #>",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0"
   },
   "frameworks": {
