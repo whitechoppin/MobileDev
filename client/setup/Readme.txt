@@ -3,5 +3,7 @@
 - Managed SDK version
 - WinJS SDK version
 
-Explample:
-msbuild Setup.csproj /t:TransformAll /p:Runtime=NODE /p:ManagedSDKVersion=1.2.3 /p:JSSDKVersion=1.2.2
+Examples:
+msbuild Setup.csproj /t:TransformAll /p:Runtime=DOTNET /p:ManagedSDKVersion=2.0.1 /p:StoreSDKVersion=2.0.1 /p:AndroidSDKVersion=2.0.0 /p:JSSDKVersion=2.0.1 /p:WinJSPackageVersion=2.0.1
+
+msbuild Setup.csproj /t:TransformAll /p:Runtime=NODE /p:ManagedSDKVersion=2.0.1 /p:StoreSDKVersion=2.0.1 /p:AndroidSDKVersion=2.0.0 /p:JSSDKVersion=2.0.1 /p:WinJSPackageVersion=2.0.1
