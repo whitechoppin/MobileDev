@@ -17,18 +17,19 @@ namespace ZUMOAPPNAME
                Theme = "@style/AppTheme")]
     public class ToDoActivity : Activity
     {
-        //Mobile Service Client reference
+        // Client reference.
         private MobileServiceClient client;
 
-        //Mobile Service sync table used to access data
+        // Sync table used to access offline data stored locally. 
         private IMobileServiceSyncTable<ToDoItem> toDoTable;
 
-        //Adapter to map the items list to the view
+        // Adapter to map the items list to the view
         private ToDoItemAdapter adapter;
 
-        //EditText containing the "New ToDo" text
+        // EditText containing the "New ToDo" text
         private EditText textNewToDo;
 
+		// URL of the mobile app backend.
         const string applicationURL = @"ZUMOAPPURL";        
 
         const string localDbFilename = "localstore.db";
@@ -42,12 +43,11 @@ namespace ZUMOAPPNAME
 
             CurrentPlatform.Init();
 
-            // Create the Mobile Service Client instance, using the provided
-            // Mobile Service URL
+            // Create the client instance, using the mobile app backend URL.
             client = new MobileServiceClient(applicationURL);
             await InitLocalStoreAsync();
 
-            // Get the Mobile Service sync table instance to use
+            // Get the sync table instance to use to store TodoItem rows.
             toDoTable = client.GetSyncTable<ToDoItem>();
 
             textNewToDo = FindViewById<EditText>(Resource.Id.textNewToDo);
@@ -57,7 +57,7 @@ namespace ZUMOAPPNAME
             var listViewToDo = FindViewById<ListView>(Resource.Id.listViewToDo);
             listViewToDo.Adapter = adapter;
 
-            // Load the items from the Mobile Service
+            // Load the items from the mobile app backend.
             OnRefreshItemsSelected();
         }
 
@@ -115,14 +115,16 @@ namespace ZUMOAPPNAME
             }
         }
 
-        // Called when the refresh menu option is selected
+        // Called when the refresh menu option is selected.
         private async void OnRefreshItemsSelected()
         {
-            await SyncAsync(pullData: true); // get changes from the mobile service
-            await RefreshItemsFromTableAsync(); // refresh view using local database
+			// Get changes from the mobile app backend.
+            await SyncAsync(pullData: true); 
+			// refresh view using local store.
+            await RefreshItemsFromTableAsync(); 
         }
 
-        //Refresh the list with the items in the local database
+        //Refresh the list with the items in the local store.
         private async Task RefreshItemsFromTableAsync()
         {
             try {
@@ -149,8 +151,10 @@ namespace ZUMOAPPNAME
             // Set the item as completed and update it in the table
             item.Complete = true;
             try {
-                await toDoTable.UpdateAsync(item); // update the new item in the local database
-                await SyncAsync(); // send changes to the mobile service
+				// Update the new item in the local store.
+                await toDoTable.UpdateAsync(item); 
+                // Send changes to the mobile app backend.
+				await SyncAsync(); 
 
                 if (item.Complete)
                     adapter.Remove(item);
@@ -175,8 +179,10 @@ namespace ZUMOAPPNAME
             };
 
             try {
-                await toDoTable.InsertAsync(item); // insert the new item into the local database
-                await SyncAsync(); // send changes to the mobile service
+				// Insert the new item into the local store.
+                await toDoTable.InsertAsync(item); 
+                // Send changes to the mobile app backend.
+				await SyncAsync(); 
 
                 if (!item.Complete) {
                     adapter.Add(item);

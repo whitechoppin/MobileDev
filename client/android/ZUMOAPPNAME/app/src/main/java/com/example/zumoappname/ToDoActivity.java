@@ -46,18 +46,18 @@ import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperati
 public class ToDoActivity extends Activity {
 
     /**
-     * Mobile Service Client reference
+     * Client reference
      */
     private MobileServiceClient mClient;
 
     /**
-     * Mobile Service Table used to access data
+     * Table used to access data from the mobile app backend.
      */
     private MobileServiceTable<ToDoItem> mToDoTable;
 
     //Offline Sync
     /**
-     * Mobile Service Table used to access and Sync data
+     * Table used to store data locally sync with the mobile app backend.
      */
     //private MobileServiceSyncTable<ToDoItem> mToDoTable;
 
@@ -90,9 +90,7 @@ public class ToDoActivity extends Activity {
         mProgressBar.setVisibility(ProgressBar.GONE);
 
         try {
-            // Create the Mobile Service Client instance, using the provided
-
-            // Mobile Service URL and key
+            // Create the client instance, using the provided mobile app URL.
             mClient = new MobileServiceClient(
                     "ZUMOAPPURL",
                     this).withFilter(new ProgressFilter());
@@ -108,11 +106,10 @@ public class ToDoActivity extends Activity {
                 }
             });
 
-            // Get the Mobile Service Table instance to use
-
+            // Get the remote table instance to use.
             mToDoTable = mClient.getTable(ToDoItem.class);
 
-            // Offline Sync
+            // Offline sync table instance.
             //mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
 
             //Init local storage
@@ -125,7 +122,7 @@ public class ToDoActivity extends Activity {
             ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
             listViewToDo.setAdapter(mAdapter);
 
-            // Load the items from the Mobile Service
+            // Load the items from the mobile app backend.
             refreshItemsFromTable();
 
         } catch (MalformedURLException e) {
