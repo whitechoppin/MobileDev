@@ -8,7 +8,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-// To add offline sync support, add the NuGet package Microsoft.WindowsAzure.MobileServices.SQLiteStore
+// To add offline sync support, add the NuGet package Microsoft.Azure.Mobile.Client.SQLiteStore
 // to your project. Then, uncomment the lines marked // offline sync
 // For more information, see: http://go.microsoft.com/fwlink/?LinkId=717898
 //using Microsoft.WindowsAzure.MobileServices.SQLiteStore;  // offline sync
