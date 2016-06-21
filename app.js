@@ -21,11 +21,9 @@ var mobileApp = azureMobileApps({
     // Explicitly enable swagger support. UI support is enabled by
     // installing the swagger-ui npm module.
     swagger: true,
-    // Explicitly set the data provider to SQLite. Usually this would be set
-    // using App Settings in the portal or using azureMobile.js
+    // App will use MS_SqliteFilename or MS_TableConnectionString to choose the SQLite or SQL data provider
     data: {
-        provider: 'sqlite',
-        filename: 'quickstart.sqlite'
+        dynamicSchema: true
     }
 });
 
