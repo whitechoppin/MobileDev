@@ -1,5 +1,6 @@
 {
   "autoIncrement": false,
+  "softDelete": true,
   "read": {
     "access": "anonymous"
   },
