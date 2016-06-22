@@ -1,6 +1,7 @@
 {
   "engines": {
     "node": "=4.2.1"
+    "npm": "3.8.6"
   },
   "name": "azure-mobile-apps-quickstarts.backend.node.try-mobile-apps",
   "version": "0.0.1",
