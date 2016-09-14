@@ -50,7 +50,7 @@ class ToDoTableViewController: UITableViewController, NSFetchedResultsController
         self.store = MSCoreDataStore(managedObjectContext: managedObjectContext)
         client.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil)
         self.table = client.syncTableWithName("TodoItem")
-        self.refreshControl?.addTarget(self, action: "onRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(ToDoTableViewController.onRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         var error : NSError? = nil
         do {
