@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.13.0",
-    "azure-mobile-apps": "^2.2.0"
+    "azure-mobile-apps": "^3.0.0"
   },
   "devDependencies": {}
 }
