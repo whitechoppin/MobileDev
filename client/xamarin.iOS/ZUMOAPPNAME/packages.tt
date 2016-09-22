@@ -10,8 +10,7 @@
   <package id="Newtonsoft.Json" version="6.0.4" targetFramework="xamarinios10" />
   <package id="SQLitePCLRaw.bundle_green" version="1.0.0" targetFramework="xamarinios10" />
   <package id="SQLitePCLRaw.core" version="1.0.0" targetFramework="xamarinios10" />
-  <package id="SQLitePCLRaw.lib.e_sqlite3.android" version="1.0.0" targetFramework="xamarinios10" />
-  <package id="SQLitePCLRaw.provider.e_sqlite3.android" version="1.0.0" targetFramework="xamarinios10" />
+  <package id="SQLitePCLRaw.provider.sqlite3.ios_unified" version="1.0.0" targetFramework="xamarinios10" />
   <package id="Microsoft.Azure.Mobile.Client" version="<#= ManagedSDKVersion #>" targetFramework="xamarinios10" />
   <package id="Microsoft.Azure.Mobile.Client.SQLiteStore" version="<#= StoreSDKVersion #>" targetFramework="xamarinios10" />
 </packages>
