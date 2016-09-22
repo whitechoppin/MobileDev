@@ -21,7 +21,7 @@ namespace ZUMOAPPNAME
         private QSTodoService ()
         {
             CurrentPlatform.Init ();
-            SQLitePCL.CurrentPlatform.Init(); 
+            SQLitePCL.Batteries.Init(); 
 
             // Initialize the client with the mobile app backend URL.
             client = new MobileServiceClient (applicationURL);
