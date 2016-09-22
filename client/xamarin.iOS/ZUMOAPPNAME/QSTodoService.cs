@@ -23,7 +23,7 @@ namespace ZUMOAPPNAME
             CurrentPlatform.Init ();
             SQLitePCL.CurrentPlatform.Init(); 
 
-            // Initialize the Mobile Service client with the Mobile App URL, Gateway URL and key
+            // Initialize the client with the mobile app backend URL.
             client = new MobileServiceClient (applicationURL);
 
             // Create an MSTable instance to allow us to work with the TodoItem table
@@ -40,11 +40,13 @@ namespace ZUMOAPPNAME
 
         public async Task InitializeStoreAsync()
         {
+			// Note that offline sync is enabled for this project: http://go.microsoft.com/fwlink/p/?LinkId=800049
             var store = new MobileServiceSQLiteStore(localDbPath);
             store.DefineTable<ToDoItem>();
 
             // Uses the default conflict handler, which fails on conflict
-            // To use a different conflict handler, pass a parameter to InitializeAsync. For more details, see http://go.microsoft.com/fwlink/?LinkId=521416
+            // To use a different conflict handler, pass a parameter to InitializeAsync. 
+			// For more details, see http://go.microsoft.com/fwlink/?LinkId=521416
             await client.SyncContext.InitializeAsync(store);
         }
 
@@ -68,8 +70,8 @@ namespace ZUMOAPPNAME
         public async Task<List<ToDoItem>> RefreshDataAsync ()
         {
             try {
-                // update the local store
-                // all operations on todoTable use the local database, call SyncAsync to send changes
+                // Update the local store
+                // Note that all operations on todoTable use the local database, call SyncAsync to send changes
                 await SyncAsync(pullData: true); 							
 
                 // This code refreshes the entries in the list view by querying the local TodoItems table.
@@ -89,7 +91,7 @@ namespace ZUMOAPPNAME
         {
             try {                
                 await todoTable.InsertAsync (todoItem); // Insert a new TodoItem into the local database. 
-                await SyncAsync(); // send changes to the mobile service
+                await SyncAsync(); // Send changes to the mobile app backend.
 
                 Items.Add (todoItem); 
 
@@ -102,8 +104,8 @@ namespace ZUMOAPPNAME
         {
             try {
                 item.Complete = true; 
-                await todoTable.UpdateAsync (item); // update todo item in the local database
-                await SyncAsync(); // send changes to the mobile service
+                await todoTable.UpdateAsync (item); // Update todo item in the local database
+                await SyncAsync(); // Send changes to the mobile app backend.
 
                 Items.Remove (item);
 
