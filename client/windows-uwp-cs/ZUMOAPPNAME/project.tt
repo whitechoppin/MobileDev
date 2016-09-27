@@ -4,7 +4,7 @@
 {
   "dependencies": {
     "Microsoft.Azure.Mobile.Client": "<#= ManagedSDKVersion #>",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0"
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2"
   },
   "frameworks": {
     "uap10.0": {}
