@@ -16,11 +16,18 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-(function () {
+(function() {
     "use strict";
 
-    var client,             // Connection to the Azure Mobile App backend
-        todoItemTable;      // Reference to a table endpoint on backend
+    var client, // Connection to the Azure Mobile App backend
+        store,  // Sqlite store to use for offline data sync
+        syncContext, // Offline data sync context
+        tableName = 'todoitem',
+        todoItemTable; // Reference to a table endpoint on backend
+
+    // Set useOfflineSync to true to use tables from local store.
+    // Set useOfflineSync to false to use tables on the server.
+    var useOfflineSync = false;
 
     // Add an event listener to call our initialization routine when the host is ready
     document.addEventListener('deviceready', onDeviceReady, false);
@@ -31,11 +38,65 @@
      * @event
      */
     function onDeviceReady() {
-        // Create a connection reference to our Azure Mobile Apps backend
+        // Create a connection reference to our Azure Mobile Apps backend 
         client = new WindowsAzure.MobileServiceClient('ZUMOAPPURL');
 
+        if (useOfflineSync) {
+            initializeStore().then(setup);
+        } else {
+            setup();
+        }
+    }
+
+    /**
+     * Set up and initialize the local store.
+     */
+    function initializeStore() {
+        // Create the sqlite store
+        store = new WindowsAzure.MobileServiceSqliteStore();
+
+        // Define the table schema
+        return store.defineTable({
+            name: tableName,
+            columnDefinitions: {
+                id: 'string',
+                deleted: 'boolean',
+                text: 'string',
+                complete: 'boolean',
+                version: 'string'
+            }
+        }).then(function() {
+            // Initialize the sync context
+            syncContext = client.getSyncContext();
+
+            // Define an overly simplified push handler that discards
+            // local changes whenever there is an error or conflict.
+            // Note that a real world push handler will have to take action according
+            // to the nature of conflict.
+            syncContext.pushHandler = {
+                onConflict: function (pushError) {
+                    return pushError.cancelAndDiscard();
+                },
+                onError: function (pushError) {
+                    return pushError.cancelAndDiscard();
+                }
+            };
+
+            return syncContext.initialize(store);
+        });
+    }
+    
+    /**
+     * Set up the tables, event handlers and load data from the server 
+     */
+    function setup() {
+
         // Create a table reference
-        todoItemTable = client.getTable('todoitem');
+        if (useOfflineSync) {
+            todoItemTable = client.getSyncTable(tableName);
+        } else {
+            todoItemTable = client.getTable(tableName);
+        }
 
         // Refresh the todoItems
         refreshDisplay();
@@ -46,18 +107,44 @@
     }
 
     /**
-     * Refresh the items within the page
+     * Refresh the display with items from the table.
+     * If offline sync is enabled, the local table will be synchronized
+     * with the server table before displaying the todo items.
      */
     function refreshDisplay() {
         updateSummaryMessage('Loading Data from Azure');
 
+        if (useOfflineSync) {
+            syncLocalTable().then(displayItems);
+        } else {
+            displayItems();
+        }    
+    }
+
+    /**
+     * Synchronize local table with the table on the server.
+     * We do this by pushing local changes to the server and then
+     * pulling the latest changes from the server.
+     */
+    function syncLocalTable() {
+        return syncContext
+                    .push()
+                    .then(function() {
+                        return syncContext.pull(new WindowsAzure.Query(tableName));
+                    });
+    }
+    
+    /**
+     * Displays the todo items
+     */
+    function displayItems() {
         // Execute a query for uncompleted items and process
         todoItemTable
             .where({ complete: false })     // Set up the query
             .read()                         // Read the results
             .then(createTodoItemList, handleError);
     }
-
+    
     /**
      * Updates the Summary Message
      * @param {string} msg the message to use
@@ -135,7 +222,7 @@
             todoItemTable.insert({
                 text: itemText,
                 complete: false
-            }).then(refreshDisplay, handleError);
+            }).then(displayItems, handleError);
         }
 
         textbox.val('').focus();
@@ -153,7 +240,7 @@
         updateSummaryMessage('Deleting Item in Azure');
         todoItemTable
             .del({ id: itemId })   // Async send the deletion to backend
-            .then(refreshDisplay, handleError); // Update the UI
+            .then(displayItems, handleError); // Update the UI
         event.preventDefault();
     }
 
@@ -169,7 +256,7 @@
         updateSummaryMessage('Updating Item in Azure');
         todoItemTable
             .update({ id: itemId, text: newText })  // Async send the update to backend
-            .then(refreshDisplay, handleError); // Update the UI
+            .then(displayItems, handleError); // Update the UI
         event.preventDefault();
     }
 
@@ -185,6 +272,6 @@
         updateSummaryMessage('Updating Item in Azure');
         todoItemTable
             .update({ id: itemId, complete: isComplete })  // Async send the update to backend
-            .then(refreshDisplay, handleError);        // Update the UI
+            .then(displayItems, handleError);        // Update the UI
     }
 })();
