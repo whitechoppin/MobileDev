@@ -37,7 +37,7 @@ namespace ZUMOAPPNAME
 
         const string localDbFilename = "localstore.db";
 #else
-        private IMobileServiceTable<TodoItem> todoTable;
+        private IMobileServiceTable<ToDoItem> todoTable;
 #endif
 
         // Adapter to map the items list to the view
