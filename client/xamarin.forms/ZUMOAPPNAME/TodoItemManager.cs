@@ -34,7 +34,7 @@ namespace ZUMOAPPNAME
         IMobileServiceTable<TodoItem> todoTable;
 #endif
 
-        const offlineDbPath = @"localstore.db";
+        const string offlineDbPath = @"localstore.db";
 
         private TodoItemManager()
         {
