@@ -54,7 +54,8 @@ namespace WinApp
                 rootFrame.Language = Windows.Globalization.ApplicationLanguages.Languages[0];
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
-
+                
+                // Initialize Xamarin Forms
                 Xamarin.Forms.Forms.Init(e); 
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)

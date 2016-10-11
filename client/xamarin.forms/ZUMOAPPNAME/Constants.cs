@@ -4,7 +4,7 @@ namespace ZUMOAPPNAME
 {
 	public static class Constants
 	{
-		// Replace strings with your mobile services and gateway URLs.
+		// Replace strings with your Azure Mobile App endpoint.
 		public static string ApplicationURL = @"ZUMOAPPURL";
 	}
 }

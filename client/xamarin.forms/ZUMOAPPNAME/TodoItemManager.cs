@@ -1,7 +1,10 @@
-// To add offline sync support: add the NuGet package Microsoft.Azure.Mobile.Client.SQLiteStore
-// to all projects in the solution and uncomment the symbol definition OFFLINE_SYNC_ENABLED
-// For Xamarin.iOS, also edit AppDelegate.cs and uncomment the call to SQLitePCL.CurrentPlatform.Init()
-// For more information, see: http://go.microsoft.com/fwlink/?LinkId=620342 
+/*
+ * To add Offline Sync Support:
+ *  1) Add the NuGet package Microsoft.Azure.Mobile.Client.SQLiteStore (and dependencies) to all client projects
+ *  2) Uncomment the #define OFFLINE_SYNC_ENABLED
+ *
+ * For more information, see: http://go.microsoft.com/fwlink/?LinkId=620342
+ */
 //#define OFFLINE_SYNC_ENABLED
 
 using System;
@@ -31,13 +34,14 @@ namespace ZUMOAPPNAME
         IMobileServiceTable<TodoItem> todoTable;
 #endif
 
+        const offlineDbPath = @"localstore.db";
+
         private TodoItemManager()
         {
-            this.client = new MobileServiceClient(
-                Constants.ApplicationURL);
+            this.client = new MobileServiceClient(Constants.ApplicationURL);
 
 #if OFFLINE_SYNC_ENABLED
-            var store = new MobileServiceSQLiteStore("localstore.db");
+            var store = new MobileServiceSQLiteStore(offlineDbPath);
             store.DefineTable<TodoItem>();
 
             //Initializes the SyncContext using the default IMobileServiceSyncHandler.

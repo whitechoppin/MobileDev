@@ -1,4 +1,13 @@
-﻿using Microsoft.WindowsAzure.MobileServices;
+﻿/*
+ * To add Offline Sync Support:
+ *  1) Add the NuGet package Microsoft.Azure.Mobile.Client.SQLiteStore (and dependencies) to all client projects
+ *  2) Uncomment the #define OFFLINE_SYNC_ENABLED
+ *
+ * For more information, see: http://go.microsoft.com/fwlink/?LinkId=717898
+ */
+//#define OFFLINE_SYNC_ENABLED
+
+using Microsoft.WindowsAzure.MobileServices;
 using System;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
@@ -6,19 +15,21 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-// To add offline sync support, add the NuGet package Microsoft.Azure.Mobile.Client.SQLiteStore
-// to your project. Then, uncomment the lines marked // offline sync
-// For more information, see: http://go.microsoft.com/fwlink/?LinkId=717898
-//using Microsoft.WindowsAzure.MobileServices.SQLiteStore;  // offline sync
-//using Microsoft.WindowsAzure.MobileServices.Sync;         // offline sync
+#if OFFLINE_SYNC_ENABLED
+using Microsoft.WindowsAzure.MobileServices.SQLiteStore;  // offline sync
+using Microsoft.WindowsAzure.MobileServices.Sync;         // offline sync
+#endif
 
 namespace ZUMOAPPNAME
 {
     public sealed partial class MainPage : Page
     {
         private MobileServiceCollection<TodoItem, TodoItem> items;
+#if OFFLINE_SYNC_ENABLED
+        private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>(); // offline sync
+#else
         private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
-        //private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>(); // offline sync
+#endif
 
         public MainPage()
         {
@@ -27,7 +38,9 @@ namespace ZUMOAPPNAME
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            //await InitLocalStoreAsync(); // offline sync
+#if OFFLINE_SYNC_ENABLED
+            InitLocalStoreAsync().Wait(); // offline sync
+#endif
             ButtonRefresh_Click(this, null);
         }
 
@@ -38,7 +51,9 @@ namespace ZUMOAPPNAME
             await todoTable.InsertAsync(todoItem);
             items.Add(todoItem);
 
-            //await App.MobileService.SyncContext.PushAsync(); // offline sync
+#if OFFLINE_SYNC_ENABLED
+            await App.MobileService.SyncContext.PushAsync(); // offline sync
+#endif
         }
 
         private async Task RefreshTodoItems()
@@ -70,20 +85,24 @@ namespace ZUMOAPPNAME
 
         private async Task UpdateCheckedTodoItem(TodoItem item)
         {
-            // This code takes a freshly completed TodoItem and updates the database. 
+            // This code takes a freshly completed TodoItem and updates the database.
 			// After the MobileService client responds, the item is removed from the list.
             await todoTable.UpdateAsync(item);
             items.Remove(item);
             ListItems.Focus(Windows.UI.Xaml.FocusState.Unfocused);
 
-            //await App.MobileService.SyncContext.PushAsync(); // offline sync
+#if OFFLINE_SYNC_ENABLED
+            await App.MobileService.SyncContext.PushAsync(); // offline sync
+#endif
         }
 
         private async void ButtonRefresh_Click(object sender, RoutedEventArgs e)
         {
             ButtonRefresh.IsEnabled = false;
 
-            //await SyncAsync(); // offline sync
+#if OFFLINE_SYNC_ENABLED
+            await SyncAsync(); // offline sync
+#endif
             await RefreshTodoItems();
 
             ButtonRefresh.IsEnabled = true;
@@ -111,25 +130,25 @@ namespace ZUMOAPPNAME
         }
 
         #region Offline sync
+#if OFFLINE_SYNC_ENABLED
+        private async Task InitLocalStoreAsync()
+        {
+           if (!App.MobileService.SyncContext.IsInitialized)
+           {
+               var store = new MobileServiceSQLiteStore("localstore.db");
+               store.DefineTable<TodoItem>();
+               await App.MobileService.SyncContext.InitializeAsync(store);
+           }
 
-        //private async Task InitLocalStoreAsync()
-        //{
-        //    if (!App.MobileService.SyncContext.IsInitialized)
-        //    {
-        //        var store = new MobileServiceSQLiteStore("localstore.db");
-        //        store.DefineTable<TodoItem>();
-        //        await App.MobileService.SyncContext.InitializeAsync(store);
-        //    }
-        //
-        //    await SyncAsync();
-        //}
+           await SyncAsync();
+        }
 
-        //private async Task SyncAsync()
-        //{
-        //    await App.MobileService.SyncContext.PushAsync();
-        //    await todoTable.PullAsync("todoItems", todoTable.CreateQuery());
-        //}
-
+        private async Task SyncAsync()
+        {
+           await App.MobileService.SyncContext.PushAsync();
+           await todoTable.PullAsync("todoItems", todoTable.CreateQuery());
+        }
+#endif
         #endregion
     }
 }
