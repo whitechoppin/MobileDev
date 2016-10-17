@@ -38,10 +38,10 @@ namespace ZUMOAPPNAME
             this.InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
 #if OFFLINE_SYNC_ENABLED
-            InitLocalStoreAsync().Wait(); // offline sync
+            await InitLocalStoreAsync(); // offline sync
 #endif
             ButtonRefresh_Click(this, null);
         }
