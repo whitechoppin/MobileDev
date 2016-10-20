@@ -34,7 +34,7 @@ namespace ZUMOAPPNAME
             base.OnAppearing();
 
             // Set syncItems to true in order to synchronize the data on startup when running in offline mode
-            await RefreshItems(true, syncItems: false);
+            await RefreshItems(true, syncItems: true);
         }
 
         // Data methods
