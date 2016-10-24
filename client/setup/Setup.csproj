@@ -133,7 +133,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ZUMOAPPNAME.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>    
+    </Content>
     <Content Include="..\xamarin.forms\ZUMOAPPNAME\ZUMOAPPNAME.csproj">
       <Link>xamarin.forms\ZUMOAPPNAME\ZUMOAPPNAME.csproj</Link>
       <AutoGen>True</AutoGen>
@@ -160,6 +160,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ZUMOAPPNAME.WinApp.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\xamarin.forms\UWP\ZUMOAPPNAME\ZUMOAPPNAME.UWP.csproj">
+      <Link>xamarin.forms\ZUMOAPPNAME\UWP\ZUMOAPPNAME.UWP.csproj</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZUMOAPPNAME.UWP.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\xamarin.forms\WinPhone81\ZUMOAPPNAME\ZUMOAPPNAME.WinPhone81.csproj">
@@ -394,6 +401,29 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>packages.config</LastGenOutput>
     </None>
+    <None Include="..\xamarin.forms\UWP\ZUMOAPPNAME.UWP.tt">
+      <Link>xamarin.forms\UWP\ZUMOAPPNAME.UWP.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ZUMOAPPNAME.UWP.csproj</LastGenOutput>
+    </None>
+    <None Include="..\xamarin.forms\UWP\packages.config">
+      <Link>xamarin.forms\UWP\packages.config</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>packages.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\xamarin.forms\UWP\packages.tt">
+      <Link>xamarin.forms\UWP\packages.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>packages.config</LastGenOutput>
+    </None>
+    <None Include="..\xamarin.forms\UWP\project.tt">
+      <Link>xamarin.forms\UWP\project.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>project.json</LastGenOutput>
+    </None>
     <None Include="..\xamarin.forms\WinApp\ZUMOAPPNAME.WinApp.tt">
       <Link>xamarin.forms\WinApp\ZUMOAPPNAME.WinApp.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -473,7 +503,7 @@
     <T4ParameterValues Include="StoreSDKVersion">
       <Value>$(StoreSDKVersion)</Value>
       <Visible>false</Visible>
-    </T4ParameterValues>    
+    </T4ParameterValues>
     <T4ParameterValues Include="WinJSPackageVersion">
       <Value>$(WinJSPackageVersion)</Value>
       <Visible>false</Visible>
@@ -482,7 +512,7 @@
   <PropertyGroup>
     <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
   </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
