@@ -18,7 +18,7 @@ import Foundation
 import UIKit
 
 protocol ToDoItemDelegate {
-    func didSaveItem(text : String)
+    func didSaveItem(_ text : String)
 }
 
 class ToDoItemViewController: UIViewController,  UIBarPositioningDelegate, UITextFieldDelegate {
@@ -35,28 +35,28 @@ class ToDoItemViewController: UIViewController,  UIBarPositioningDelegate, UITex
         self.text.becomeFirstResponder()
     }
     
-    @IBAction func cancelPressed(sender : UIBarButtonItem) {
+    @IBAction func cancelPressed(_ sender : UIBarButtonItem) {
         self.text.resignFirstResponder()
     }
     
-    @IBAction func savePressed(sender : UIBarButtonItem) {
+    @IBAction func savePressed(_ sender : UIBarButtonItem) {
         saveItem()
         self.text.resignFirstResponder()
     }
     
     // Textfield
     
-    func textFieldDidEndEditing(textField: UITextField)
+    func textFieldDidEndEditing(_ textField: UITextField)
     {
-        self.navigationController?.popViewControllerAnimated(true);
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
-    func textFieldShouldEndEditing(textField: UITextField) -> Bool
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool
     {
         return true
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         saveItem()
         
