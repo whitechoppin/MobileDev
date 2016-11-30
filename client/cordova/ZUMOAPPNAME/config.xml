@@ -106,5 +106,5 @@
   <platform name="wp8">
     <splash src="res/screens/wp8/SplashScreenImage.jpg" width="480" height="800" />
   </platform>
-  <plugin name="cordova-plugin-ms-azure-mobile-apps" spec="~2.0.0-beta" />
+  <plugin name="cordova-plugin-ms-azure-mobile-apps" spec="~2.0.0" />
 </widget>
