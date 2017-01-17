@@ -18,7 +18,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ZUMOAPPNAMEService</RootNamespace>
     <AssemblyName>ZUMOAPPNAMEService</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -71,25 +71,22 @@
       <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.<#= this.GetVersion(nugetPackages, "Microsoft.Owin")#>\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Server">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server")#>\Microsoft.Azure.Mobile.Server.dll</HintPath>
+      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server", "net46")#>\Microsoft.Azure.Mobile.Server.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Server.Authentication">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server.Authentication")#>\Microsoft.Azure.Mobile.Server.Authentication.dll</HintPath>
+      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server.Authentication", "net46")#>\Microsoft.Azure.Mobile.Server.Authentication.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Server.Entity">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server.Entity")#>\Microsoft.Azure.Mobile.Server.Entity.dll</HintPath>
+      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server.Entity", "net46")#>\Microsoft.Azure.Mobile.Server.Entity.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Server.Home">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server.Home")#>\Microsoft.Azure.Mobile.Server.Home.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Azure.Mobile.Server.Notifications">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server.Notifications")#>\Microsoft.Azure.Mobile.Server.Notifications.dll</HintPath>
+      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server.Home", "net46")#>\Microsoft.Azure.Mobile.Server.Home.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Server.Quickstart">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server.Quickstart")#>\Microsoft.Azure.Mobile.Server.Quickstart.dll</HintPath>
+      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server.Quickstart", "net46")#>\Microsoft.Azure.Mobile.Server.Quickstart.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Server.Tables">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server.Tables")#>\Microsoft.Azure.Mobile.Server.Tables.dll</HintPath>
+      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server.Tables", "net46")#>\Microsoft.Azure.Mobile.Server.Tables.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath><#= this.GetHintPath(nugetPackages, "EntityFramework")#>\EntityFramework.dll</HintPath>
@@ -103,9 +100,6 @@
     </Reference>
     <Reference Include="System.Web.Http.OData">
       <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.AspNet.WebApi.OData")#>\System.Web.Http.OData.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Azure.NotificationHubs">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.NotificationHubs", "net45-full")#>\Microsoft.Azure.NotificationHubs.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -139,10 +133,7 @@
       <HintPath><#= this.GetHintPath(nugetPackages, "System.IdentityModel.Tokens.Jwt")#>\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
     <Reference Include="AutoMapper">
-      <HintPath><#= this.GetHintPath(nugetPackages, "AutoMapper", "net40")#>\AutoMapper.dll</HintPath>
-    </Reference>
-    <Reference Include="AutoMapper.Net4">
-      <HintPath><#= this.GetHintPath(nugetPackages, "AutoMapper", "net40")#>\AutoMapper.Net4.dll</HintPath>
+      <HintPath><#= this.GetHintPath(nugetPackages, "AutoMapper", "net45")#>\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Data.Edm">
       <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Data.Edm", "net40")#>\Microsoft.Data.Edm.dll</HintPath>
