@@ -48,12 +48,19 @@ namespace ZUMOAPPNAME
         {
             // This code inserts a new TodoItem into the database. After the operation completes
             // and the mobile app backend has assigned an id, the item is added to the CollectionView.
-            await todoTable.InsertAsync(todoItem);
-            items.Add(todoItem);
+            try
+            {
+                await todoTable.InsertAsync(todoItem);
+                items.Add(todoItem);
 
 #if OFFLINE_SYNC_ENABLED
-            await App.MobileService.SyncContext.PushAsync(); // offline sync
+                await App.MobileService.SyncContext.PushAsync(); // offline sync
 #endif
+            }
+            catch (Exception e)
+            {
+                await new MessageDialog(e.Message, "Error syncing items").ShowAsync();
+            }
         }
 
         private async Task RefreshTodoItems()
@@ -145,8 +152,15 @@ namespace ZUMOAPPNAME
 
         private async Task SyncAsync()
         {
-           await App.MobileService.SyncContext.PushAsync();
-           await todoTable.PullAsync("todoItems", todoTable.CreateQuery());
+            try
+            {
+                await App.MobileService.SyncContext.PushAsync();
+                await todoTable.PullAsync("todoItems", todoTable.CreateQuery());
+            }
+            catch (Exception e)
+            {
+                await new MessageDialog(e.Message, "Error syncing items").ShowAsync();
+            }
         }
 #endif
         #endregion
