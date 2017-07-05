@@ -15,8 +15,7 @@ namespace ZUMOAPPNAME
             manager = TodoItemManager.DefaultManager;
 
             // OnPlatform<T> doesn't currently support the "Windows" target platform, so we have this check here.
-            if (manager.IsOfflineEnabled &&
-                (Device.OS == TargetPlatform.Windows || Device.OS == TargetPlatform.WinPhone))
+            if (manager.IsOfflineEnabled && Device.OS == TargetPlatform.Windows)
             {
                 var syncButton = new Button
                 {
