@@ -8,6 +8,11 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
+using Microsoft.WindowsAzure.MobileServices;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
+
 namespace ZUMOAPPNAME.Droid
 {
 	[Activity (Label = "ZUMOAPPNAME.Droid",
@@ -15,17 +20,17 @@ namespace ZUMOAPPNAME.Droid
 		MainLauncher = true,
 		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
 		Theme = "@android:style/Theme.Holo.Light")]
-	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
+	public class MainActivity : FormsApplicationActivity
 	{
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
 			// Initialize Azure Mobile Apps
-			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+			CurrentPlatform.Init();
 
 			// Initialize Xamarin Forms
-			global::Xamarin.Forms.Forms.Init (this, bundle);
+			Forms.Init (this, bundle);
 
 			// Load the main application
 			LoadApplication (new App ());
