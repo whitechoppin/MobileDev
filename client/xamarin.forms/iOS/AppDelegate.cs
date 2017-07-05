@@ -6,22 +6,27 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
+using Microsoft.WindowsAzure.MobileServices;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.iOS;
+
 namespace ZUMOAPPNAME.iOS
 {
 	[Register ("AppDelegate")]
-	public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
+	public partial class AppDelegate : FormsApplicationDelegate
 	{
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			// Initialize Azure Mobile Apps
-			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+			CurrentPlatform.Init();
 
 			// Initialize Xamarin Forms
-			global::Xamarin.Forms.Forms.Init ();
+			Forms.Init();
 
-			LoadApplication (new App ());
+			LoadApplication(new App ());
 
-			return base.FinishedLaunching (app, options);
+			return base.FinishedLaunching(app, options);
 		}
 	}
 }
