@@ -342,7 +342,7 @@
       <Link>xamarin.forms\ZUMOAPPNAME\packages.config</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>packages.tt</DependentUpon>
+      <DependentUpon>project.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
