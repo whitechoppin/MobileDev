@@ -113,6 +113,18 @@
       <DependentUpon>ZUMOAPPNAME.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\xamarin.forms\Droid\ZUMOAPPNAME.Droid.csproj">
+      <Link>xamarin.forms\Droid\ZUMOAPPNAME.Droid.csproj</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZUMOAPPNAME.Droid.tt</DependentUpon>
+    </Content>
+    <Content Include="..\xamarin.forms\iOS\ZUMOAPPNAME.iOS.csproj">
+      <Link>xamarin.forms\iOS\ZUMOAPPNAME.iOS.csproj</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZUMOAPPNAME.iOS.tt</DependentUpon>
+    </Content>
     <Content Include="..\xamarin.iOS\ZUMOAPPNAME.sln">
       <Link>xamarin.iOS\ZUMOAPPNAME.sln</Link>
       <AutoGen>True</AutoGen>
@@ -141,27 +153,6 @@
       <DependentUpon>ZUMOAPPNAME.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\xamarin.forms\Droid\ZUMOAPPNAME\ZUMOAPPNAME.Droid.csproj">
-      <Link>xamarin.forms\ZUMOAPPNAME\Droid\ZUMOAPPNAME.Droid.csproj</Link>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ZUMOAPPNAME.Droid.tt</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\xamarin.forms\iOS\ZUMOAPPNAME\ZUMOAPPNAME.iOS.csproj">
-      <Link>xamarin.forms\ZUMOAPPNAME\iOS\ZUMOAPPNAME.iOS.csproj</Link>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ZUMOAPPNAME.iOS.tt</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\xamarin.forms\UWP\ZUMOAPPNAME\ZUMOAPPNAME.UWP.csproj">
-      <Link>xamarin.forms\ZUMOAPPNAME\UWP\ZUMOAPPNAME.UWP.csproj</Link>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ZUMOAPPNAME.UWP.tt</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\windows-uwp-cs\ZUMOAPPNAME\project.json">
       <Link>windows-uwp-cs\ZUMOAPPNAME\project.json</Link>
       <AutoGen>True</AutoGen>
@@ -186,6 +177,18 @@
     <Content Include="Readme.txt" />
     <Content Include="TextTemplating\Microsoft.TextTemplating.Build.Tasks.dll" />
     <Content Include="TextTemplating\Microsoft.VisualStudio.TextTemplating.Sdk.Host.14.0.dll" />
+    <Content Include="xamarin.forms\Droid\project.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>project.json</LastGenOutput>
+    </Content>
+    <Content Include="xamarin.forms\iOS\project.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>project.json</LastGenOutput>
+    </Content>
+    <Content Include="xamarin.forms\ZUMOAPPNAME\project.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>project.json</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\web\index.tt">
@@ -305,6 +308,12 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>packages.config</LastGenOutput>
     </None>
+    <None Include="..\xamarin.forms\UWP\project.json">
+      <Link>xamarin.forms\UWP\project.json</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>project.tt</DependentUpon>
+    </None>
     <None Include="..\xamarin.iOS\ZUMOAPPNAME.tt">
       <Link>xamarin.iOS\ZUMOAPPNAME.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -338,18 +347,11 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ZUMOAPPNAME.csproj</LastGenOutput>
     </None>
-    <None Include="..\xamarin.forms\ZUMOAPPNAME\packages.config">
-      <Link>xamarin.forms\ZUMOAPPNAME\packages.config</Link>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>project.tt</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="..\xamarin.forms\ZUMOAPPNAME\packages.tt">
       <Link>xamarin.forms\ZUMOAPPNAME\packages.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>packages.config</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="..\xamarin.forms\Droid\ZUMOAPPNAME.Droid.tt">
       <Link>xamarin.forms\Droid\ZUMOAPPNAME.Droid.tt</Link>
@@ -426,6 +428,21 @@
       <LastGenOutput>ZUMOAPPNAME.sln</LastGenOutput>
     </None>
     <None Include="TextTemplating\Microsoft.TextTemplating.targets" />
+    <None Include="xamarin.forms\Droid\project.json">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>project.tt</DependentUpon>
+    </None>
+    <None Include="xamarin.forms\iOS\project.json">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>project.tt</DependentUpon>
+    </None>
+    <None Include="xamarin.forms\ZUMOAPPNAME\project.json">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>project.tt</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
