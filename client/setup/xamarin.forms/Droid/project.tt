@@ -1,4 +1,5 @@
 <#@template language="c#" hostspecific="true"#>
+<#@template language="c#" hostspecific="true"#>
 <#@output extension=".json"#>
 <#@parameter type="System.String" name="ManagedSDKVersion"#>
 {
