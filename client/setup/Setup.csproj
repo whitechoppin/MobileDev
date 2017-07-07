@@ -428,15 +428,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>project.tt</DependentUpon>
     </None>
-    <None Include="xamarin.forms\iOS\project.json">
+    <None Include="..\xamarin.forms\iOS\project.json">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>project.tt</DependentUpon>
     </None>
-    <None Include="xamarin.forms\ZUMOAPPNAME\project.json">
+    <None Include="..\xamarin.forms\ZUMOAPPNAME\project.json">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>project.tt</DependentUpon>
+    </None>
+    <None Include="..\xamarin.forms\ZUMOAPPNAME\packages.config">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>packages.tt</DependentUpon>
+    </None>
+    <None Include="..\xamarin.forms\ZUMOAPPNAME\packages.tt">
+      <Link>xamarin.forms\ZUMOAPPNAME\packages.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>packages.config</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
