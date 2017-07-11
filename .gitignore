@@ -18,6 +18,11 @@ obj
 *.xccheckout
 deriveddata
 
+# NuGet V3 artifacts
+*.nuget.props
+*.nuget.targets
+project.lock.json
+
 # Downloaded files
 .nuget
 tools-packages
@@ -56,5 +61,6 @@ backend/dotnet/Quickstart/ZUMOAPPNAMEService/ZUMOAPPNAMEService.csproj
 client/xamarin.forms/*.sln
 client/xamarin.forms/**/*.config
 client/xamarin.forms/**/*.csproj
-client/xamarin.forms/UWP/project.json
+client/xamarin.forms/**/project.json
+client/xamarin.forms/Droid/Resources/Resource.designer.cs
 /client/android/ZUMOAPPNAME/app/build.gradle

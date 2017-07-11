@@ -4,12 +4,9 @@
 {
   "dependencies": {
     "Microsoft.Azure.Mobile.Client": "<#= ManagedSDKVersion #>",
-    "NETStandard.Library": "1.6.1",
     "Xamarin.Forms": "2.3.4.247"
   },
   "frameworks": {
-    "netstandard1.4": {
-      "imports": "portable-win8+net45+wpa81"
-    }
+    "Xamarin.iOS,Version=v1.0": {}
   }
 }

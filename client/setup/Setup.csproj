@@ -177,18 +177,6 @@
     <Content Include="Readme.txt" />
     <Content Include="TextTemplating\Microsoft.TextTemplating.Build.Tasks.dll" />
     <Content Include="TextTemplating\Microsoft.VisualStudio.TextTemplating.Sdk.Host.14.0.dll" />
-    <None Include="xamarin.forms\Droid\project.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>project.json</LastGenOutput>
-    </None>
-    <None Include="xamarin.forms\iOS\project.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>project.json</LastGenOutput>
-    </None>
-    <None Include="xamarin.forms\ZUMOAPPNAME\project.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>project.json</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\web\index.tt">
