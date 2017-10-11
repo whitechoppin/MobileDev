@@ -93,24 +93,31 @@ namespace ZUMOAPPNAME
             }
             catch (MobileServiceInvalidOperationException msioe)
             {
-                Debug.WriteLine(@"Invalid sync operation: {0}", msioe.Message);
+                Debug.WriteLine("Invalid sync operation: {0}", new[] { msioe.Message });
             }
             catch (Exception e)
             {
-                Debug.WriteLine(@"Sync error: {0}", e.Message);
+                Debug.WriteLine("Sync error: {0}", new[] { e.Message });
             }
             return null;
         }
 
         public async Task SaveTaskAsync(TodoItem item)
         {
-            if (item.Id == null)
+            try
             {
-                await todoTable.InsertAsync(item);
+                if (item.Id == null)
+                {
+                    await todoTable.InsertAsync(item);
+                }
+                else
+                {
+                    await todoTable.UpdateAsync(item);
+                }
             }
-            else
+            catch (Exception e)
             {
-                await todoTable.UpdateAsync(item);
+                Debug.WriteLine("Save error: {0}", new[] { e.Message });
             }
         }
 
