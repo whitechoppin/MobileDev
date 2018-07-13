@@ -117,7 +117,7 @@
       <Version>11.0.2</Version>
     </PackageReference>
     <PackageReference Include="PInvoke.NCrypt">
-      <Version>0.5.152</Version>
+      <Version>0.5.155</Version>
     </PackageReference>
     <PackageReference Include="SQLitePCLRaw.bundle_green">
       <Version>1.1.11</Version>
@@ -265,12 +265,6 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Build.Download">
       <Version>0.4.11</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Essentials">
-      <Version>0.8.0-preview</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Firebase.Messaging">
-      <Version>60.1142.1</Version>
     </PackageReference>
   </ItemGroup>
 </Project>
