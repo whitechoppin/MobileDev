@@ -13,7 +13,7 @@ namespace ZUMOAPPNAME
             InitializeComponent();
 
             manager = TodoItemManager.DefaultManager;
-            if (Device.RuntimePlatform == Device.Windows)
+            if (Device.RuntimePlatform == Device.UWP)
             {
                 var refreshButton = new Button
                 {
