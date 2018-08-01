@@ -13,17 +13,25 @@ namespace ZUMOAPPNAME
             InitializeComponent();
 
             manager = TodoItemManager.DefaultManager;
-			
-            if (manager.IsOfflineEnabled && Device.RuntimePlatform == Device.UWP)
+            if (Device.RuntimePlatform == Device.UWP)
             {
-                var syncButton = new Button
+                var refreshButton = new Button
                 {
-                    Text = "Sync items",
+                    Text = "Refresh",
                     HeightRequest = 30
                 };
-                syncButton.Clicked += OnSyncItems;
-
-                buttonsPanel.Children.Add(syncButton);
+                refreshButton.Clicked += OnRefreshItems;
+                buttonsPanel.Children.Add(refreshButton);
+                if (manager.IsOfflineEnabled)
+                {
+                    var syncButton = new Button
+                    {
+                        Text = "Sync items",
+                        HeightRequest = 30
+                    };
+                    syncButton.Clicked += OnSyncItems;
+                    buttonsPanel.Children.Add(syncButton);
+                }
             }
         }
 
@@ -118,6 +126,11 @@ namespace ZUMOAPPNAME
         public async void OnSyncItems(object sender, EventArgs e)
         {
             await RefreshItems(true, true);
+        }
+
+        public async void OnRefreshItems(object sender, EventArgs e)
+        {
+            await RefreshItems(true, false);
         }
 
         private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
