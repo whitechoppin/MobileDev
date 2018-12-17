@@ -28,9 +28,11 @@ Alternatively, you can build the quickstarts yourself for use with your Mobile A
 
 ### Building Quickstarts For Uploading To Azure Portal
 
+Make sure you have Visual Studio 2015 installed.
+
 From the command line, run 
 
-    C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe .\Microsoft.WindowsAzure.Mobile.Build.msbuild
+    "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe" .\Microsoft.WindowsAzure.Mobile.Build.msbuild
 
 The build script downloads latest official nuget packages, updates quickstarts with required versions and dependencies, and packs required projects to appropriate quickstarts.
 
