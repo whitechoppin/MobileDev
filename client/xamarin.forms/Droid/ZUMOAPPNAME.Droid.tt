@@ -19,11 +19,10 @@
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>ZUMOAPPNAME.Droid</AssemblyName>
     <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
-	<AndroidSupportedAbis>armeabi;armeabi-v7a;x86</AndroidSupportedAbis>
-	<AndroidLinkSkip>
-	</AndroidLinkSkip>
-	<AndroidStoreUncompressedFileExtensions>
-	</AndroidStoreUncompressedFileExtensions>
+    <AndroidLinkSkip>
+    </AndroidLinkSkip>
+    <AndroidStoreUncompressedFileExtensions>
+    </AndroidStoreUncompressedFileExtensions>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
