@@ -21,7 +21,7 @@
     <JSSDKVersion>2.0.0-beta</JSSDKVersion>
 
     <!--TODO : Detect Android SDK version-->
-    <AndroidSDKVersion>3.0</AndroidSDKVersion>
+    <AndroidSDKVersion>3.4.0</AndroidSDKVersion>
 
     <!--Variable to override iOS SDK-->
     <iOSSDK></iOSSDK>
