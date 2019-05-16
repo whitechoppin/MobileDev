@@ -22,9 +22,7 @@ To get the source code of our SDKs and samples via **git** just type:
  
 ## Quickstarts Usage Instructions
 
-The Azure Portal helps you get started quickly with Mobile Apps by providing a set of quickstarts for the supported client and server platforms. The quickstarts are customised by the Azure Portal to work with the Mobile App cloud backend you are downloading it for.
-
-Alternatively, you can build the quickstarts yourself for use with your Mobile Apps cloud backend.
+You can build the quickstarts yourself for use with your Mobile Apps cloud backend.
 
 ### Building Quickstarts For Uploading To Azure Portal
 
