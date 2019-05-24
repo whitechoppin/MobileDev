@@ -13,10 +13,9 @@
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidApplication>True</AndroidApplication>
-    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>ZUMOAPPNAME.Droid</AssemblyName>
     <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
-	<AndroidSupportedAbis>armeabi;armeabi-v7a;x86</AndroidSupportedAbis>
+	<AndroidSupportedAbis>armeabi-v7a;x86</AndroidSupportedAbis>
 	<AndroidLinkSkip>
 	</AndroidLinkSkip>
 	<AndroidStoreUncompressedFileExtensions>
