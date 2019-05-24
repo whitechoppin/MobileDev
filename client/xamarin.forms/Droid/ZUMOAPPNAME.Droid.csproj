@@ -1,6 +1,3 @@
-<#@template language="c#" hostspecific="true"#>
-<#@output extension=".csproj"#>
-<#@parameter type="System.String" name="ManagedSDKVersion"#>
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
@@ -19,10 +16,11 @@
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>ZUMOAPPNAME.Droid</AssemblyName>
     <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
-    <AndroidLinkSkip>
-    </AndroidLinkSkip>
-    <AndroidStoreUncompressedFileExtensions>
-    </AndroidStoreUncompressedFileExtensions>
+	<AndroidSupportedAbis>armeabi;armeabi-v7a;x86</AndroidSupportedAbis>
+	<AndroidLinkSkip>
+	</AndroidLinkSkip>
+	<AndroidStoreUncompressedFileExtensions>
+	</AndroidStoreUncompressedFileExtensions>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,7 +57,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-      <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="<#= ManagedSDKVersion #>" />
+      <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.1.1" />
       <PackageReference Include="Xamarin.Forms" Version="3.1.0.637273" />
       <PackageReference Include="Xamarin.Android.Support.v4" Version="25.4.0.2" />
   </ItemGroup>
