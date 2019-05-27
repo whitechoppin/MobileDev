@@ -1,11 +1,4 @@
-﻿<#@template language="c#" hostspecific="true"#>
-<#@ assembly name="System.Core" #>
-<#@ import namespace="System.Linq" #>
-<#@ import namespace="System.Text" #>
-<#@ import namespace="System.Collections.Generic" #>
-<#@ output extension=".csproj" #>
-<#@parameter type="System.String" name="srcDirectory"#>
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -66,40 +59,39 @@
     </VisualStudio>
   </ProjectExtensions>
   <ItemGroup>
-  <# var nugetPackages = this.GetQuickStartTemplates(); #>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb">
-      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.<#= this.GetVersion(nugetPackages, "Microsoft.Owin")#>\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Server">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server", "net46")#>\Microsoft.Azure.Mobile.Server.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Server.2.0.1\lib\net46\Microsoft.Azure.Mobile.Server.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Server.Authentication">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server.Authentication", "net46")#>\Microsoft.Azure.Mobile.Server.Authentication.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Server.Authentication.2.0.1\lib\net46\Microsoft.Azure.Mobile.Server.Authentication.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Server.Entity">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server.Entity", "net46")#>\Microsoft.Azure.Mobile.Server.Entity.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Server.Entity.2.0.1\lib\net46\Microsoft.Azure.Mobile.Server.Entity.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Server.Home">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server.Home", "net46")#>\Microsoft.Azure.Mobile.Server.Home.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Server.Home.2.0.1\lib\net46\Microsoft.Azure.Mobile.Server.Home.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Server.Quickstart">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server.Quickstart", "net46")#>\Microsoft.Azure.Mobile.Server.Quickstart.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Server.Quickstart.2.0.1\lib\net46\Microsoft.Azure.Mobile.Server.Quickstart.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Server.Tables">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Azure.Mobile.Server.Tables", "net46")#>\Microsoft.Azure.Mobile.Server.Tables.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Server.Tables.2.0.1\lib\net46\Microsoft.Azure.Mobile.Server.Tables.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
-      <HintPath><#= this.GetHintPath(nugetPackages, "EntityFramework")#>\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
-      <HintPath><#= this.GetHintPath(nugetPackages, "EntityFramework")#>\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.AspNet.WebApi.Core")#>\System.Web.Http.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.OData">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.AspNet.WebApi.OData")#>\System.Web.Http.OData.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.5.7.0\lib\net45\System.Web.Http.OData.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -110,43 +102,43 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="Microsoft.Owin">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Owin")#>\Microsoft.Owin.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Formatting">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.AspNet.WebApi.Client")#>\System.Net.Http.Formatting.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="Owin">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Owin", "net40")#>\Owin.dll</HintPath>
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Newtonsoft.Json")#>\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.Owin">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.AspNet.WebApi.Owin")#>\System.Web.Http.Owin.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Owin.Security")#>\Microsoft.Owin.Security.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Configuration">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.WindowsAzure.ConfigurationManager", "net40")#>\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.3.2.3\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="System.IdentityModel.Tokens.Jwt">
-      <HintPath><#= this.GetHintPath(nugetPackages, "System.IdentityModel.Tokens.Jwt")#>\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.4.0.3.308261200\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
     <Reference Include="AutoMapper">
-      <HintPath><#= this.GetHintPath(nugetPackages, "AutoMapper", "net45")#>\AutoMapper.dll</HintPath>
+      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Data.Edm">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Data.Edm", "net40")#>\Microsoft.Data.Edm.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.8.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Data.OData">
-      <HintPath><#= this.GetHintPath(nugetPackages, "Microsoft.Data.OData", "net40")#>\Microsoft.Data.OData.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Data.OData.5.8.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
     </Reference>
     <Reference Include="System.Spatial">
-      <HintPath><#= this.GetHintPath(nugetPackages, "System.Spatial", "net40")#>\System.Spatial.dll</HintPath>
+      <HintPath>..\packages\System.Spatial.5.8.4\lib\net40\System.Spatial.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.Tracing">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Tracing.<#= this.GetVersion(nugetPackages, "Microsoft.AspNet.WebApi.Core")#>\lib\net45\System.Web.Http.Tracing.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Tracing.5.2.3\lib\net45\System.Web.Http.Tracing.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -180,4 +172,4 @@
     <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
   </Target>
 </Project>
-<#@ include file="..\..\FindDependentNugets.tt" #>
+
