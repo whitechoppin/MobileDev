@@ -53,8 +53,8 @@ client/xamarin.android/ZUMOAPPNAME/packages.config
 client/xamarin.iOS/ZUMOAPPNAME/packages.config
 backend/dotnet/Quickstart/ZUMOAPPNAMEService/packages.config
 backend/dotnet/Quickstart/ZUMOAPPNAMEService/ZUMOAPPNAMEService.csproj
-/backend/dotnet/Quickstart/ZUMOAPPNAMEService/Web.config
+backend/dotnet/Quickstart/ZUMOAPPNAMEService/Web.config
 client/xamarin.forms/**/*.config
 client/xamarin.forms/**/project.json
 client/xamarin.forms/Droid/Resources/Resource.designer.cs
-/client/android/ZUMOAPPNAME/app/build.gradle
+client/android/ZUMOAPPNAME/app/build.gradle
