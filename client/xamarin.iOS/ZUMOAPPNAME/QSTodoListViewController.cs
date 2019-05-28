@@ -118,6 +118,8 @@ namespace ZUMOAPPNAME
 
 			await todoService.InsertTodoItemAsync (newItem);
 
+			if (todoService.Items == null || todoService.Items.Count == 0) return;
+
 			var index = todoService.Items.FindIndex (item => item.Id == newItem.Id);
 
 			TableView.InsertRows (new [] { NSIndexPath.FromItemSection (index, 0) },

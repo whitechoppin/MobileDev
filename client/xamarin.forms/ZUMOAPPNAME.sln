@@ -1,7 +1,3 @@
-﻿<#@template language="c#" hostspecific="true"#>
-<#@parameter type="System.String" name="Runtime"#>
-<#@output extension=".sln"#>
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
@@ -40,7 +36,6 @@ Global
 		{3AFA591D-C115-4AC9-9519-F788373ECDE9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{3AFA591D-C115-4AC9-9519-F788373ECDE9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{3AFA591D-C115-4AC9-9519-F788373ECDE9}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{3AFA591D-C115-4AC9-9519-F788373ECDE9}.Debug|x64.Build.0 = Debug|Any CPU
 		{3AFA591D-C115-4AC9-9519-F788373ECDE9}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{3AFA591D-C115-4AC9-9519-F788373ECDE9}.Debug|x86.Build.0 = Debug|Any CPU
 		{3AFA591D-C115-4AC9-9519-F788373ECDE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,7 +46,6 @@ Global
 		{3AFA591D-C115-4AC9-9519-F788373ECDE9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3AFA591D-C115-4AC9-9519-F788373ECDE9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3AFA591D-C115-4AC9-9519-F788373ECDE9}.Release|x64.ActiveCfg = Release|Any CPU
-		{3AFA591D-C115-4AC9-9519-F788373ECDE9}.Release|x64.Build.0 = Release|Any CPU
 		{3AFA591D-C115-4AC9-9519-F788373ECDE9}.Release|x86.ActiveCfg = Release|Any CPU
 		{3AFA591D-C115-4AC9-9519-F788373ECDE9}.Release|x86.Build.0 = Release|Any CPU
 		{5FA0219F-B063-4D07-800B-CC38BDB5B916}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
